@@ -5,9 +5,10 @@ import { Button } from 'react-bootstrap';
 import BASE_URL from '../service/base_url';
 import { Link } from 'react-router-dom';
 
-function TableContent({ empArray,deleteEmp }) {
+function TableContent({ empArray, deleteEmp }) {
   return (
     <div>
+      <h1 className='font text-center' style={{ color: '#000099' }}>List of Employees</h1>
       {
         empArray.length > 0 ? (
           <Table className='w-75 container' striped bordered hover variant='info'>
@@ -37,9 +38,9 @@ function TableContent({ empArray,deleteEmp }) {
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
-                          <Link to={`/view/${i._id}`} style={{textDecoration:'none'}}><Dropdown.Item href="ac1"><i class="fa-solid fa-user"></i> View</Dropdown.Item></Link>
-                          <Link to={`/edit/${i._id}`} style={{textDecoration:'none'}}><Dropdown.Item href="ac2"><i class="fa-solid fa-user-pen"></i> Edit</Dropdown.Item></Link>
-                          <Dropdown.Item onClick={()=>deleteEmp(i._id)}><i class="fa-solid fa-user-xmark"></i> Delete</Dropdown.Item>
+                          <Link to={`/view/${i._id}`} style={{ textDecoration: 'none' }}><Dropdown.Item href="ac1"><i class="fa-solid fa-user"></i> View</Dropdown.Item></Link>
+                          <Link to={`/edit/${i._id}`} style={{ textDecoration: 'none' }}><Dropdown.Item href="ac2"><i class="fa-solid fa-user-pen"></i> Edit</Dropdown.Item></Link>
+                          <Dropdown.Item onClick={() => deleteEmp(i._id)}><i class="fa-solid fa-user-xmark"></i> Delete</Dropdown.Item>
                         </Dropdown.Menu>
                       </Dropdown>
                     </td>
@@ -51,7 +52,6 @@ function TableContent({ empArray,deleteEmp }) {
           </Table>
         ) : (<h1 className='text-center text-danger '>No Employees found</h1>)
       }
-      <h1 className='font text-center' style={{ color: '#000099' }}>List of Employees</h1>
 
     </div>
   )
